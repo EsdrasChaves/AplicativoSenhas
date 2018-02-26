@@ -3,7 +3,6 @@ package com.example.esdraschaves.aplicativocedro;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -41,9 +40,9 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        errorMsg = (TextView) findViewById(R.id.text_error);
-        emailField = (EditText) findViewById(R.id.edit_email);
-        passwordField = (EditText) findViewById(R.id.edit_password);
+        errorMsg = (TextView) findViewById(R.id.r_text_error);
+        emailField = (EditText) findViewById(R.id.r_edit_email);
+        passwordField = (EditText) findViewById(R.id.r_edit_password);
         loginButton = (Button) findViewById(R.id.button_login);
         registerMsg = (TextView) findViewById(R.id.text_register);
 
@@ -60,9 +59,8 @@ public class LoginActivity extends AppCompatActivity {
 
         if((email.matches("") || (password.matches("")))){
             loginFailed("Todos os campos devem ser preenchidos");
-            toastResposta = "Email ou senhas inválidos";
         } else {
-            UserInfo userInfo = new UserInfo(email, "Joao", password);
+            UserInfo userInfo = new UserInfo(email, null, password);
 
             validateLogin(userInfo);
         }
@@ -104,7 +102,7 @@ public class LoginActivity extends AppCompatActivity {
 
                 } else {
                     CredentialResponse result = (CredentialResponse) response.body();
-                    loginSucess(userInfo.getEmail(), result.getToken());
+                    loginSuccess(userInfo.getEmail(), result.getToken());
                 }
             }
 
@@ -116,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 
-    public void loginSucess(String email, String token) {
+    public void loginSuccess(String email, String token) {
 
         CurrentSession.getInstance().newSession(email, token);
 

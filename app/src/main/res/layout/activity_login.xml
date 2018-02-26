@@ -16,7 +16,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="15dp"
         android:contentDescription="@string/iv_DescLogo"
-        app:layout_constraintBottom_toTopOf="@+id/text_error"
+        app:layout_constraintBottom_toTopOf="@+id/r_text_error"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,19 +25,19 @@
         app:srcCompat="@drawable/ic_logo" />
 
     <TextView
-        android:id="@+id/text_error"
+        android:id="@+id/r_text_error"
         android:layout_width="0dp"
         android:layout_height="18dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/edit_email"
+        app:layout_constraintBottom_toTopOf="@+id/r_edit_email"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edit_email"
+        android:id="@+id/r_edit_email"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginBottom="24dp"
@@ -48,12 +48,12 @@
         android:hint="@string/et_EmailHint"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/edit_password"
+        app:layout_constraintBottom_toTopOf="@+id/r_edit_password"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/edit_password"
+        android:id="@+id/r_edit_password"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginBottom="40dp"
@@ -90,8 +90,8 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:onClick="registerApp"
+        android:text="@string/btn_GoToRegister"
         android:textColor="#FFFFFF"
-        android:text="@string/btn_Register"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"

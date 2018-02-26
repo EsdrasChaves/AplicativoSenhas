@@ -20,4 +20,11 @@ public interface APIService {
     @Headers("Content-Type: application/json")
     @POST("login")
     Call<CredentialResponse> login(@Body UserInfo userInfo);
+
+
+    @Headers("Content-Type: application/json")
+    @POST("register")
+    Call<CredentialResponse> register(@Body UserInfo userInfo);
+
+
 }

@@ -1,9 +1,11 @@
 <resources>
     <string name="app_name">AplicativoCedro</string>
     <string name="btn_Login">Login</string>
-    <string name="btn_Register">Ainda não é cadastrado? Clique aqui!</string>
+    <string name="btn_Register">Cadastrar</string>
+    <string name="btn_GoToRegister">Ainda não é cadastrado? Clique aqui</string>
     <string name="et_EmailHint">Email</string>
     <string name="et_PasswordHint">Senha</string>
     <string name="iv_DescLogo">App Logo</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="et_NameHint">Nome</string>
 </resources>

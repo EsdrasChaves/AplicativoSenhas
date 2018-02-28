@@ -8,4 +8,13 @@
     <string name="iv_DescLogo">App Logo</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="et_NameHint">Nome</string>
+    <string name="add_account">Adicione uma nova conta</string>
+    <string name="text_done">Concluído!</string>
+    <string name="text_url">URL do WebSite</string>
+    <string name="text_userName">Usuário/Email</string>
+    <string name="text_edit">Editar</string>
+    <string name="text_delete">Excluir</string>
+    <string name="text_url_description">URL:</string>
+    <string name="text_user_description">Usuário:</string>
+    <string name="text_password_description">Senha:</string>
 </resources>

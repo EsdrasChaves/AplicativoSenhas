@@ -36,11 +36,11 @@ public class CurrentSession {
         this.token = token;
     }
 
-    private String getEmail() {
+    public String getEmail() {
         return this.email;
     }
 
-    private String getToken() {
+    public String getToken() {
         return this.token;
     }
 }

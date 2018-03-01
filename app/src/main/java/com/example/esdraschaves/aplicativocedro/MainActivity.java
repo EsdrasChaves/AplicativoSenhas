@@ -1,7 +1,10 @@
 package com.example.esdraschaves.aplicativocedro;
 
+import android.annotation.TargetApi;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.RequiresApi;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -54,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, FormAccountActivity.class);
         startActivity(intent);
     }
+
+
 
     public void recoverData() {
         // Adiciona as contas

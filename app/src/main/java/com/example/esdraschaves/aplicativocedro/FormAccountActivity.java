@@ -56,17 +56,21 @@ public class FormAccountActivity extends AppCompatActivity {
 
         Account account = helper.getAccount();
 
-        AccountDAO dao = new AccountDAO(FormAccountActivity.this);
+        if(account != null) {
+            AccountDAO dao = new AccountDAO(FormAccountActivity.this);
 
-        if(account.getId() == null) {
-            dao.register(account);
-        }else {
-            dao.update(account);
+            if(account.getId() == null) {
+                dao.register(account);
+            }else {
+                dao.update(account);
+            }
+
+            dao.close();
+
+            finish();
         }
 
-        dao.close();
 
-        finish();
     }
 
 }

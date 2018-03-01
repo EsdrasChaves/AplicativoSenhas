@@ -4,12 +4,15 @@ import android.content.Context;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.esdraschaves.aplicativocedro.FormAccountActivity;
 import com.example.esdraschaves.aplicativocedro.Model.Account;
 import com.example.esdraschaves.aplicativocedro.Model.CurrentSession;
 import com.example.esdraschaves.aplicativocedro.R;
 import com.example.esdraschaves.aplicativocedro.Utils.EncryptDecrypt;
+
+import org.w3c.dom.Text;
 
 import java.io.UnsupportedEncodingException;
 
@@ -21,6 +24,7 @@ public class FormHelper {
     private EditText webURL;
     private EditText userName;
     private EditText passWord;
+    private TextView errorMsg;
     private CurrentSession session;
     private Context context;
 
@@ -31,6 +35,7 @@ public class FormHelper {
         webURL = (EditText) activity.findViewById(R.id.edit_url);
         userName = (EditText) activity.findViewById(R.id.edit_userName);
         passWord = (EditText) activity.findViewById(R.id.edit_userPassword);
+        errorMsg = (TextView) activity.findViewById(R.id.f_text_error);
 
         this.context = activity;
 
@@ -49,6 +54,12 @@ public class FormHelper {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public Account getAccount() {
+
+        if(webURL.getText().toString().matches("") || userName.getText().toString().matches("") || passWord.getText().toString().matches("")) {
+            errorMsg.setText("Todos os campos devem ser preenchidos");
+            return null;
+        }
+
 
         account.setOwner(session.getEmail());
         account.setUrl(webURL.getText().toString());

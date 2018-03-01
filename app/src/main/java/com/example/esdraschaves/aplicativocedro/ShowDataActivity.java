@@ -44,6 +44,7 @@ public class ShowDataActivity extends AppCompatActivity {
     Button edit_account;
     Button delete_account;
     Boolean passwordVisible;
+    android.support.v7.widget.Toolbar toolbar;
 
     Account account;
 
@@ -71,6 +72,17 @@ public class ShowDataActivity extends AppCompatActivity {
         if(account != null) {
             setDataOnScreen();
         }
+
+        toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar3);
+
+        toolbar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 

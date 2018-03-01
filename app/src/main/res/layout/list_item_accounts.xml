@@ -31,16 +31,36 @@
                 android:text="Nome"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="#000000"
+                android:layout_marginVertical="10dp"
                 android:textSize="25sp"
                 android:textStyle="bold"/>
 
-            <TextView
-                android:id="@+id/text_userName"
-                android:layout_marginBottom="15dp"
-                android:text="Descrição"
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="15sp"/>
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_marginBottom="15dp"
+                    android:text="Usuário: "
+                    android:textStyle="bold"
+                    android:textColor="#000000"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"/>
+
+                <TextView
+                    android:id="@+id/text_userName"
+                    android:layout_marginBottom="15dp"
+                    android:text="Descrição"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="15sp"/>
+            </LinearLayout>
+
+
 
         </LinearLayout>
         
@@ -49,7 +69,7 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="2px"
-        android:background="#FFFFFF"/>
+        android:background="#bdbdbd"/>
     
 
 </LinearLayout>

@@ -8,7 +8,6 @@
     tools:context="com.example.esdraschaves.aplicativocedro.LoginActivity">
 
     <ImageView
-        android:id="@+id/image_logo"
         android:layout_width="407dp"
         android:layout_height="71dp"
         android:layout_marginBottom="8dp"

@@ -21,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/r_image_register"
         android:layout_width="384dp"
         android:layout_height="76dp"
         android:layout_marginBottom="5dp"

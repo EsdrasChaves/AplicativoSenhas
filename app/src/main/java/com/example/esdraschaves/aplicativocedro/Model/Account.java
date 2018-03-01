@@ -3,11 +3,13 @@ package com.example.esdraschaves.aplicativocedro.Model;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import java.io.Serializable;
+
 /**
  * Created by Esdras Chaves on 27/02/2018.
  */
 
-public class Account {
+public class Account implements Serializable{
 
 
     private Long id;

@@ -1,5 +1,8 @@
 package com.example.esdraschaves.aplicativocedro;
 
+import android.content.Context;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +16,7 @@ public class FormAccountActivity extends AppCompatActivity {
 
     Button buttonDone;
     FormHelper helper;
+    Account account = null;
 
 
     @Override
@@ -22,15 +26,26 @@ public class FormAccountActivity extends AppCompatActivity {
 
         helper = new FormHelper(this);
 
+        account = (Account) getIntent().getSerializableExtra("SELECTED_ACCOUNT");
+
+        if(account != null) {
+            helper.setAccount(account);
+        }
+
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void finishedForm(View view) {
 
         Account account = helper.getAccount();
 
         AccountDAO dao = new AccountDAO(FormAccountActivity.this);
 
-        dao.register(account);
+        if(account.getId() == null) {
+            dao.register(account);
+        }else {
+            dao.update(account);
+        }
 
         dao.close();
 

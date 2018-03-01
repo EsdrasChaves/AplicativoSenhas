@@ -61,8 +61,10 @@ public class MainActivity extends AppCompatActivity {
         AccountDAO dao = new AccountDAO(this);
         this.listAccounts = dao.list(CurrentSession.getInstance().getEmail());
 
-        AdapterAccounts adapter = new AdapterAccounts(listAccounts);
+        AdapterAccounts adapter = new AdapterAccounts(listAccounts, this);
         recyclerAccounts.setAdapter(adapter);
+
+        dao.close();
 
 
     }

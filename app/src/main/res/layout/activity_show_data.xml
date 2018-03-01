@@ -107,6 +107,7 @@
         android:layout_marginStart="72dp"
         android:layout_marginLeft="72dp"
         android:text="@string/text_edit"
+        android:onClick="updateAccount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -118,6 +119,7 @@
         android:layout_marginEnd="80dp"
         android:layout_marginRight="80dp"
         android:text="@string/text_delete"
+        android:onClick="deleteAccount"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 

@@ -86,6 +86,30 @@ public class AccountDAO extends SQLiteOpenHelper {
 
     }
 
+    public void delete(Account account) {
+        String[] args = {account.getId().toString()};
+
+        getWritableDatabase().delete(TABLE, "id=?", args);
+
+        Log.i("Delete", "Conta deletada: " +account.getId());
+
+    }
+
+    public void update(Account account) {
+        ContentValues values = new ContentValues();
+
+        values.put("owner", account.getOwner());
+        values.put("url", account.getUrl());
+        values.put("user", account.getUser());
+        values.put("password", account.getPassword());
+
+        String[] args = {account.getId().toString()};
+
+        getWritableDatabase().update(TABLE, values, "id=?", args);
+        Log.i("Update", "Account updatad: " + account.getUrl());
+
+    }
+
     public ArrayList<Account> list(String email) {
 
         ArrayList<Account> list = new ArrayList<Account>();

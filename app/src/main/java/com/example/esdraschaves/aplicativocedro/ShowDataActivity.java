@@ -3,6 +3,9 @@ package com.example.esdraschaves.aplicativocedro;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.method.PasswordTransformationMethod;
@@ -14,7 +17,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.esdraschaves.aplicativocedro.DAO.AccountDAO;
+import com.example.esdraschaves.aplicativocedro.Model.Account;
+import com.example.esdraschaves.aplicativocedro.Model.CurrentSession;
+import com.jakewharton.picasso.OkHttp3Downloader;
+import com.squareup.picasso.Picasso;
+
 import org.w3c.dom.Text;
+
+import java.io.IOException;
+import java.io.Serializable;
+
+import okhttp3.Interceptor;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
 
 public class ShowDataActivity extends AppCompatActivity {
 
@@ -27,6 +44,8 @@ public class ShowDataActivity extends AppCompatActivity {
     Button edit_account;
     Button delete_account;
     Boolean passwordVisible;
+
+    Account account;
 
 
 
@@ -45,9 +64,47 @@ public class ShowDataActivity extends AppCompatActivity {
         edit_account = (Button) findViewById(R.id.button_edit_account);
         delete_account= (Button) findViewById(R.id.button_delete_account);
 
+        account = (Account) getIntent().getSerializableExtra("Selected_Account");
+
         passwordVisible = false;
 
+        if(account != null) {
+            setDataOnScreen();
+        }
+
     }
+
+
+    public void setDataOnScreen() {
+        text_url.setText(account.getUrl());
+        text_user.setText(account.getUser());
+        text_password.setText(account.getPassword());
+
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(new Interceptor() {
+                    @Override
+                    public Response intercept(Chain chain) throws IOException {
+                        Request newRequest = chain.request().newBuilder()
+                                .addHeader("authorization", CurrentSession.getInstance().getToken())
+                                .build();
+                        return chain.proceed(newRequest);
+                    }
+                })
+                .build();
+
+        Picasso picasso = new Picasso.Builder(this)
+                .downloader(new OkHttp3Downloader(client))
+                .build();
+
+        String PATH = "https://dev.people.com.ai/mobile/api/v2/logo/" + account.getUrl();
+
+        picasso.load(PATH).into(image_logo);
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
 
 
     public void viewPassword(View view) {
@@ -74,6 +131,37 @@ public class ShowDataActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(this, "Senha copiada para Área de Transferência", Toast.LENGTH_SHORT);
         toast.show();
 
+    }
+
+    public void updateAccount(View view) {
+        Intent form = new Intent(ShowDataActivity.this, FormAccountActivity.class);
+
+        form.putExtra("SELECTED_ACCOUNT", account);
+
+        startActivity(form);
+
+        finish();
+    }
+
+    public void deleteAccount(View view) {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("Confirma a exclusão de: " + account.getUrl());
+
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                AccountDAO dao = new AccountDAO(ShowDataActivity.this);
+                dao.delete(account);
+                dao.close();
+                finish();
+            }
+        });
+
+        builder.setNegativeButton("Não", null);
+        AlertDialog dialog = builder.create();
+        dialog.setTitle("Confirmação de Operação");
+        dialog.show();
     }
 
 

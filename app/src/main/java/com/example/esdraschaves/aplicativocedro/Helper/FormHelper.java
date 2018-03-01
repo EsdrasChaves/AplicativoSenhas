@@ -36,6 +36,14 @@ public class FormHelper {
         account = new Account();
     }
 
+    public void setAccount(Account account) {
+        webURL.setText(account.getUrl());
+        userName.setText(account.getUser());
+        passWord.setText(account.getPassword());
+
+        this.account = account;
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.M)
     public Account getAccount() {
 

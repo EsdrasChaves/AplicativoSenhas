@@ -1,5 +1,6 @@
 package com.example.esdraschaves.aplicativocedro.Helper;
 
+import android.content.Context;
 import android.os.Build;
 import android.support.annotation.RequiresApi;
 import android.widget.EditText;
@@ -21,6 +22,7 @@ public class FormHelper {
     private EditText userName;
     private EditText passWord;
     private CurrentSession session;
+    private Context context;
 
     private Account account;
 
@@ -30,6 +32,7 @@ public class FormHelper {
         userName = (EditText) activity.findViewById(R.id.edit_userName);
         passWord = (EditText) activity.findViewById(R.id.edit_userPassword);
 
+        this.context = activity;
 
         session = CurrentSession.getInstance();
 
@@ -47,20 +50,10 @@ public class FormHelper {
     @RequiresApi(api = Build.VERSION_CODES.M)
     public Account getAccount() {
 
-        EncryptDecrypt teste = new EncryptDecrypt();
-
-
-        // Criptografar AKI.
-
         account.setOwner(session.getEmail());
         account.setUrl(webURL.getText().toString());
         account.setUser(userName.getText().toString());
         account.setPassword(passWord.getText().toString());
-
-
-        //Account aux = teste.encryptAccount(account);
-        //Account aux2 = teste.decryptAccount(aux);
-
 
         return account;
 

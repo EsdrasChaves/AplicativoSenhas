@@ -9,6 +9,8 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.widget.Toast;
@@ -19,6 +21,7 @@ import com.example.esdraschaves.aplicativocedro.Model.CredentialResponse;
 import com.example.esdraschaves.aplicativocedro.Model.CurrentSession;
 import com.example.esdraschaves.aplicativocedro.Model.UserInfo;
 import com.example.esdraschaves.aplicativocedro.Rest.APIService;
+import com.example.esdraschaves.aplicativocedro.Utils.EncryptDecrypt;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,14 +47,18 @@ public class AccountDAO extends SQLiteOpenHelper {
     private static final int VERSION =  1;
     private static final String TABLE = "Account";
     private static final String DATABASE = "AppCedro";
+    private EncryptDecrypt encryptDecrypt;
 
     private Bitmap foto;
 
 
     private static final String TAG = "REGISTER_ACCOUNT";
 
+    @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN_MR2)
     public AccountDAO(Context context) {
         super (context, DATABASE, null, VERSION);
+
+        encryptDecrypt = new EncryptDecrypt(context);
     }
 
 
@@ -72,17 +79,20 @@ public class AccountDAO extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void register(Account account) {
         ContentValues values = new ContentValues();
 
-        values.put("owner", account.getOwner());
-        values.put("url", account.getUrl());
-        values.put("user", account.getUser());
-        values.put("password", account.getPassword());
+        Account aux = encryptDecrypt.encryptAccount(account);
+
+        values.put("owner", aux.getOwner());
+        values.put("url", aux.getUrl());
+        values.put("user", aux.getUser());
+        values.put("password", aux.getPassword());
 
         getWritableDatabase().insert(TABLE, null, values);
 
-        Log.i(TAG, "Registered account " + account.getUser());
+        Log.i(TAG, "Registered account " + aux.getUser());
 
     }
 
@@ -95,21 +105,25 @@ public class AccountDAO extends SQLiteOpenHelper {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public void update(Account account) {
         ContentValues values = new ContentValues();
 
-        values.put("owner", account.getOwner());
-        values.put("url", account.getUrl());
-        values.put("user", account.getUser());
-        values.put("password", account.getPassword());
+        Account aux = encryptDecrypt.encryptAccount(account);
 
-        String[] args = {account.getId().toString()};
+        values.put("owner", aux.getOwner());
+        values.put("url", aux.getUrl());
+        values.put("user", aux.getUser());
+        values.put("password", aux.getPassword());
+
+        String[] args = {aux.getId().toString()};
 
         getWritableDatabase().update(TABLE, values, "id=?", args);
         Log.i("Update", "Account updatad: " + account.getUrl());
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     public ArrayList<Account> list(String email) {
 
         ArrayList<Account> list = new ArrayList<Account>();
@@ -121,23 +135,21 @@ public class AccountDAO extends SQLiteOpenHelper {
         try {
             while(cursor.moveToNext()) {
 
-                // Decrypt Stuff
-
                 Account account = new Account();
+                Account aux;
 
                 account.setId(cursor.getLong(0));
                 account.setOwner(cursor.getString(1));
 
-                // Set picture according to API
 
                 account.setUrl(cursor.getString(2));
                 account.setUser(cursor.getString(3));
                 account.setPassword(cursor.getString(4));
 
 
-                account.setSiteLogo(foto);
+                aux = encryptDecrypt.decryptAccount(account);
 
-                list.add(account);
+                list.add(aux);
 
 
             }

@@ -5,87 +5,86 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#25AE90"
-    tools:context="com.example.esdraschaves.aplicativocedro.LoginActivity">
+    tools:context="com.example.esdraschaves.aplicativocedro.LoginActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <ImageView
-        android:layout_width="407dp"
-        android:layout_height="71dp"
-        android:layout_marginBottom="8dp"
+        android:id="@+id/imageView3"
+        android:layout_width="380dp"
+        android:layout_height="94dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="80dp"
         android:contentDescription="@string/iv_DescLogo"
-        app:layout_constraintBottom_toTopOf="@+id/r_text_error"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="0.466"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625"
         app:srcCompat="@drawable/ic_logo" />
 
     <TextView
         android:id="@+id/r_text_error"
-        android:layout_width="0dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_width="304dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="44dp"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/r_edit_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <EditText
         android:id="@+id/r_edit_email"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="10dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/et_EmailHint"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/r_edit_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_text_error" />
 
     <EditText
         android:id="@+id/r_edit_password"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/et_PasswordHint"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_login"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_edit_email" />
 
     <Button
         android:id="@+id/button_login"
         android:layout_width="0dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="67dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
         android:onClick="loginApp"
         android:text="@string/btn_Login"
         android:textColor="#25AE90"
         app:layout_constraintBottom_toTopOf="@+id/text_register"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/text_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="160dp"
+        android:layout_marginBottom="56dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:onClick="registerApp"
@@ -93,7 +92,6 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

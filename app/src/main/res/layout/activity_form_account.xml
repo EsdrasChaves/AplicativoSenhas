@@ -5,47 +5,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d3d3d3"
-    tools:context="com.example.esdraschaves.aplicativocedro.FormAccountActivity">
+    tools:context="com.example.esdraschaves.aplicativocedro.FormAccountActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/text_new_account"
         android:layout_width="wrap_content"
-        android:layout_height="43dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="36dp"
         android:text="@string/add_account"
         android:textColor="#25AE90"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
 
     <EditText
         android:id="@+id/edit_url"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:background="#e0e0e0"
         android:ems="10"
         android:hint="@string/text_url"
         android:inputType="text|textEmailAddress"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_new_account" />
+        app:layout_constraintTop_toBottomOf="@+id/f_text_error" />
 
     <EditText
         android:id="@+id/edit_userName"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:background="#e0e0e0"
         android:ems="10"
         android:hint="@string/text_userName"
@@ -58,35 +57,34 @@
     <EditText
         android:id="@+id/edit_userPassword"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="24dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:background="#e0e0e0"
         android:ems="10"
         android:hint="@string/et_PasswordHint"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edit_userName" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="60dp"
+        android:layout_marginBottom="48dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
         android:background="#25AE90"
         android:onClick="finishedForm"
         android:text="@string/text_done"
         android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edit_userPassword" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar2"
@@ -101,15 +99,14 @@
 
     <TextView
         android:id="@+id/f_text_error"
-        android:layout_width="0dp"
+        android:layout_width="415dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="76dp"
         android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/edit_url"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.132"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_new_account" />
 
 </android.support.constraint.ConstraintLayout>

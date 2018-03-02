@@ -5,17 +5,20 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#d3d3d3"
-    tools:context="com.example.esdraschaves.aplicativocedro.ShowDataActivity">
+    tools:context="com.example.esdraschaves.aplicativocedro.ShowDataActivity"
+    tools:layout_editor_absoluteY="25dp">
 
 
     <ImageView
         android:id="@+id/image_web_logo"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="70dp"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="30dp"
         android:scaleType="fitXY"
+        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar3"
@@ -24,55 +27,43 @@
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
-        android:layout_width="361dp"
-        android:layout_height="200dp"
+        android:layout_width="0dp"
+        android:layout_height="233dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="350dp"
+        android:layout_marginTop="8dp"
         android:background="#e0e0e0"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.506"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/toolbar3"
+        app:layout_constraintVertical_bias="0.595">
 
-
-        <ImageButton
-            android:id="@+id/image_copyPassword"
-            android:layout_width="27dp"
-            android:layout_height="27dp"
-            android:layout_marginEnd="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="24dp"
-            android:onClick="copyToClipboard"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/text_user_data"
-            app:srcCompat="?attr/actionModeCopyDrawable" />
 
         <ImageButton
             android:id="@+id/image_viewPassword"
             android:layout_width="27dp"
             android:layout_height="27dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
             android:onClick="viewPassword"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/image_copyPassword"
-            app:layout_constraintTop_toBottomOf="@+id/text_user_data"
             app:srcCompat="@android:drawable/ic_menu_view" />
 
         <TextView
             android:id="@+id/text_url_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="36dp"
             android:text="TextView"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.195"
+            app:layout_constraintEnd_toEndOf="@+id/text_user_data"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/text_url_description"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,9 +71,8 @@
             android:id="@+id/text_url_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginStart="36dp"
+            android:layout_marginTop="36dp"
             android:text="@string/text_url_description"
             android:textSize="18sp"
             android:textStyle="bold"
@@ -93,28 +83,24 @@
             android:id="@+id/text_user_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:text="@string/text_user_description"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_url_description"
             app:layout_constraintTop_toBottomOf="@+id/text_url_description" />
 
         <TextView
             android:id="@+id/text_user_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="12dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="12dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="48dp"
             android:text="TextView"
             android:textSize="18sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.238"
+            app:layout_constraintEnd_toStartOf="@+id/image_viewPassword"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toEndOf="@+id/text_user_description"
             app:layout_constraintTop_toBottomOf="@+id/text_url_data" />
 
@@ -122,29 +108,36 @@
             android:id="@+id/text_password_description"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:text="@string/text_password_description"
             android:textSize="18sp"
             android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/text_user_description"
             app:layout_constraintTop_toBottomOf="@+id/text_user_description" />
+
+        <ImageButton
+            android:id="@+id/image_copyPassword"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:layout_marginBottom="24dp"
+            android:layout_marginEnd="8dp"
+            android:onClick="copyToClipboard"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:srcCompat="?attr/actionModeCopyDrawable" />
 
         <TextView
             android:id="@+id/text_password_data"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginEnd="8dp"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="48dp"
             android:inputType="textPassword"
             android:text="TextView"
             android:textSize="18sp"
             app:layout_constraintEnd_toStartOf="@+id/image_viewPassword"
-            app:layout_constraintStart_toEndOf="@+id/text_password_description"
+            app:layout_constraintStart_toStartOf="@+id/text_user_data"
             app:layout_constraintTop_toBottomOf="@+id/text_user_data" />
 
     </android.support.constraint.ConstraintLayout>
@@ -153,9 +146,9 @@
     <Button
         android:id="@+id/button_edit_account"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="48dp"
         android:background="#25AE90"
         android:onClick="updateAccount"
         android:text="@string/text_edit"
@@ -166,9 +159,9 @@
     <Button
         android:id="@+id/button_delete_account"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="68dp"
-        android:layout_marginTop="100dp"
+        android:layout_height="0dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginTop="48dp"
         android:background="#25AE90"
         android:onClick="deleteAccount"
         android:text="@string/text_delete"
@@ -184,8 +177,7 @@
         android:minHeight="?attr/actionBarSize"
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="0dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>

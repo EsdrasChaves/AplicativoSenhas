@@ -27,9 +27,12 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme" />
-        <activity android:name=".FormAccountActivity" />
-        <activity android:name=".ShowDataActivity" />
+            android:theme="@style/AppTheme"
+            android:screenOrientation="portrait" />
+        <activity android:name=".FormAccountActivity"
+            android:screenOrientation="portrait" />
+        <activity android:name=".ShowDataActivity"
+            android:screenOrientation="portrait" />
 
     </application>
 

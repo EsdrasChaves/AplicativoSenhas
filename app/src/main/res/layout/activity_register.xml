@@ -5,29 +5,28 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#25AE90"
-    tools:context="com.example.esdraschaves.aplicativocedro.RegisterActivity">
+    tools:context="com.example.esdraschaves.aplicativocedro.RegisterActivity"
+    tools:layout_editor_absoluteY="25dp">
 
     <TextView
         android:id="@+id/r_text_error"
-        android:layout_width="0dp"
-        android:layout_height="18dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
-        android:textColor="#FF0000"
-        app:layout_constraintBottom_toTopOf="@+id/r_edit_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <ImageView
-        android:layout_width="384dp"
-        android:layout_height="76dp"
-        android:layout_marginBottom="5dp"
+        android:layout_width="304dp"
+        android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        app:layout_constraintBottom_toTopOf="@+id/r_text_error"
+        android:layout_marginTop="60dp"
+        android:textColor="#FF0000"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="290dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="36dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -36,66 +35,66 @@
     <EditText
         android:id="@+id/r_edit_name"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/et_NameHint"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/r_edit_email"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_text_error" />
 
     <EditText
         android:id="@+id/r_edit_email"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/et_EmailHint"
         android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/r_edit_password"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_edit_name" />
 
     <EditText
         android:id="@+id/r_edit_password"
         android:layout_width="0dp"
-        android:layout_height="50dp"
-        android:layout_marginBottom="40dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_height="60dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="24dp"
         android:background="#FFFFFF"
         android:ems="10"
         android:hint="@string/et_PasswordHint"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
-        app:layout_constraintBottom_toTopOf="@+id/r_button_register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_edit_email" />
 
     <Button
         android:id="@+id/r_button_register"
         android:layout_width="0dp"
         android:layout_height="60dp"
-        android:layout_marginBottom="160dp"
-        android:layout_marginEnd="40dp"
-        android:layout_marginStart="40dp"
+        android:layout_marginBottom="68dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="8dp"
+        android:onClick="registerApp"
         android:text="@string/btn_Register"
         android:textColor="#25AE90"
-        android:onClick="registerApp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/r_edit_password" />
 
 </android.support.constraint.ConstraintLayout>
